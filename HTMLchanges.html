@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<body style="background-color: white">
+		
+
+		<!-- HTML Table for Testing Purposes -->
+		<table id = "myTable" style="border: 10px solid red; font-size: 20px; font-weight: bold">
+			<tr id = "row1" style = "color: blue" >
+				<td id = "1.1" style = "border: 2px solid black">Row 1 Col 1</td>
+				<td id = "1.2" style = "border: 2px solid black">Row 1 Col 2</td>
+			</tr>
+		</table>
+		<!--Button to Launch a Function -->
+		<br><br>
+		<button type="submit" onclick = "changeTextColor()">Change Text Color</button><br>
+		<button type="submit" onclick = "nightMode()">Toggle night mode</button>
+		<button type="submit" onclick = "Zoom()">Increase font size</button>
+		<button type="submit" onclick = "addRow()">Change</button>
+				
+
+				<script>
+					// First JavaScript Function
+					// Changes text color from blue to green and back again
+					function changeTextColor(){
+						var textcolor = document.getElementById("row1").style.color;
+						if (textcolor== "green"){textcolor = "blue";}
+						else{textcolor = "green";}
+						document.getElementById("row1").style.color = textcolor;
+					}
+
+					function nightMode(){
+						var NMbackgroundcolor = document.body.style.backgroundColor;
+						var NMtextcolor = document.getElementById("row1").style.color;
+						var NMbordercolor = document.getElementById("myTable").style.border;
+						if (NMbackgroundcolor== "white"){NMbackgroundcolor = "black", NMtextcolor = "white", NMbordercolor = "2px solid white";}
+						else{NMbackgroundcolor = "white", NMtextcolor = "green", NMbordercolor = "2px solid black";}
+						document.body.style.backgroundColor = NMbackgroundcolor;
+						document.getElementById("row1").style.color = NMtextcolor;
+						document.getElementById("myTable").style.border = NMbordercolor;
+					}
+
+						function Zoom(){
+						var textSize = document.getElementById("row1").style.fontSize;
+						if (textSize== "20px"){textSize = "40px";}
+						else{textSize = "20px";}
+						document.getElementById("row1").style.fontSize = textSize;
+					}
+
+						function addRow(){
+    					var table = document.getElementById("myTable");
+    						var row = table.insertRow(1);
+    						var cell1 = row.insertCell(0);
+    						var cell2 = row.insertCell(1);
+    						//Would be cool to add a loop counter to continually add rows AND label them properly.
+    						cell1.innerHTML = "Row 2 Col 1";
+    						cell2.innerHTML = "Row 2 Col 2";
+						}
+
+				</script>
+	</body>
+</html>
